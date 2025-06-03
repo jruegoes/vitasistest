@@ -1,55 +1,32 @@
-# React + TypeScript + Vite
+**Kako testirati**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```bash
+# Razvojna različica z proxy
+npm run dev
 
-Currently, two official plugins are available:
+# Produkcijska gradnja z TypeScript preverjanjem
+npm run build
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Preview produkcijske gradnje
+npm run preview
 
-## Expanding the ESLint configuration
+# Linting
+npm run lint
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Testiranje z Vitest
+npm run test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Testirati samo na Chromium based browserju, ker ni resamplinga
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+iz dokumentacije
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# vitasistest
+let audioContext;
+const targetSampleRate = 16000;
+
+if (navigator.userAgent.includes("Chrome") || navigator.userAgent.includes("Microsoft Edge")) {
+  audioContext = new AudioContext({ sampleRate: targetSampleRate });
+} else {
+  audioContext = new AudioContext(); // Will default to device rate (often 44.1kHz or 48kHz)
+}
+⚠️ If the AudioContext sample rate does not match the target, we must resample the audio before sending it to the Truebar service.
