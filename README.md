@@ -17,6 +17,10 @@ npm run lint
 npm run test
 ```
 
+Uporabiti playground credentialse.
+
+Vec dokumentacije v DOKUMENTACIJA.md
+
 Testirati samo na Chromium based browserju, ker ni resamplinga
 
 iz dokumentacije
