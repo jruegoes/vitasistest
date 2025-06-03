@@ -1,25 +1,54 @@
-**Kako testirati**
+## ✅ Kako testirati aplikacijo
 
 ```bash
-# Razvojna različica z proxy
+# Razvojna različica z vklopljenim proxyjem
 npm run dev
 
-# Produkcijska gradnja z TypeScript preverjanjem
+# Produkcijska gradnja z vključeno TypeScript validacijo
 npm run build
 
-# Preview produkcijske gradnje
+# Predogled produkcijske različice
 npm run preview
 
-# Linting
+# Preverjanje kode z ESLint
 npm run lint
 
-# Testiranje z Vitest
+# Testiranje z Vitest (vključuje enote in integracije)
 npm run test
-```
+🔐 Uporabiti Playground credentials.
 
-Uporabiti playground credentialse.
+📄 Več informacij najdete v datoteki DOKUMENTACIJA.md.
 
-Vec dokumentacije v DOKUMENTACIJA.md
+🧪 Testirano izključno na RIVA:SI-GEN modelih.
+⚠️ KALDI včasih deluje, včasih ne
+
+💡 Lastnosti aplikacije
+Avtentikacija in tematski context (teme)
+
+Podpora za več jezikov
+
+Enostavni unit in integration testi
+
+Modularna struktura
+
+Minimalna optimizacija (npr. lazy loading editorja, memoizacija)
+
+Uporablja sodobne CSS rešitve
+
+Dostopnost (accessibility):
+
+Podpora za uporabo s tipkovnico
+
+aria-id za screen readerje in QA testiranje
+
+🤖 Razvojni proces
+Razvito s pomočjo AI orodij:
+
+Claude 4: načrtovanje, testiranje, dokumentacija, komentarji
+
+Gemini 2.5 Pro: generiranje komponent
+
+Cursor: kot glavno razvojno okolje
 
 Testirati samo na Chromium based browserju, ker ni resamplinga
 
