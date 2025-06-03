@@ -1,0 +1,229 @@
+/* Accessibility Enhancement Styles */
+
+/* Screen Reader Only Content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focusable screen reader content */
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background-color: #1e40af;
+  color: white;
+  z-index: 9999;
+}
+
+/* Enhanced Focus Indicators */
+.focus\:ring-enhanced:focus {
+  --tw-ring-offset-width: 3px;
+  --tw-ring-width: 3px;
+  --tw-ring-opacity: 1;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .glass-effect {
+    background-color: white !important;
+    border: 2px solid #000 !important;
+  }
+  
+  .dark .glass-effect {
+    background-color: #000 !important;
+    border: 2px solid #fff !important;
+    color: white !important;
+  }
+  
+  /* Enhanced button visibility in high contrast */
+  button {
+    border: 2px solid currentColor !important;
+  }
+  
+  /* Enhanced text contrast */
+  .text-gray-600 {
+    color: #000 !important;
+  }
+  
+  .dark .text-gray-400 {
+    color: #fff !important;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-spin,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* Skip Link Styles */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #1e40af;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  font-weight: 600;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Enhanced Keyboard Navigation */
+*:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Better button focus states */
+button:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Improved link focus states */
+a:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
+/* Live region announcements */
+[aria-live] {
+  /* Ensure live regions are properly positioned */
+  position: relative;
+}
+
+/* Form control enhancements */
+[role="textbox"],
+[role="combobox"],
+select,
+input,
+textarea {
+  border: 2px solid transparent;
+}
+
+[role="textbox"]:focus,
+[role="combobox"]:focus,
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Error state styling */
+[aria-invalid="true"] {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Loading state accessibility */
+[aria-busy="true"] {
+  cursor: wait;
+}
+
+/* Disabled state styling */
+[disabled],
+[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Tooltip accessibility */
+[role="tooltip"] {
+  background: #1f2937;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  z-index: 1000;
+}
+
+/* Dark mode tooltip */
+.dark [role="tooltip"] {
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+/* Enhanced toggle states */
+[role="switch"][aria-checked="true"] {
+  background-color: #059669;
+}
+
+/* Status and alert styling */
+[role="status"],
+[role="alert"] {
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+[role="alert"] {
+  border-left: 4px solid #ef4444;
+}
+
+/* Better color contrast for text */
+.text-contrast {
+  color: #111827;
+}
+
+.dark .text-contrast {
+  color: #f9fafb;
+}
+
+/* Print accessibility */
+@media print {
+  .sr-only {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+  }
+  
+  [aria-hidden="true"] {
+    display: none !important;
+  }
+}
+
+/* Ensure sufficient color contrast */
+.contrast-safe {
+  color: #111827;
+  background-color: #ffffff;
+}
+
+.dark .contrast-safe {
+  color: #f9fafb;
+  background-color: #111827;
+} 
